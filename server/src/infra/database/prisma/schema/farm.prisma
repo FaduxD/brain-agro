@@ -1,0 +1,14 @@
+model Farm {
+  id              Int      @id @default(autoincrement())
+  name            String
+  city            String
+  state           String
+  totalArea       Float
+  atricultureArea Float
+  vegetationArea  Float
+  producerId      Int
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  producer        Producer @relation(fields: [producerId], references: [id], onDelete: Cascade)
+  crops           Crop[]
+}

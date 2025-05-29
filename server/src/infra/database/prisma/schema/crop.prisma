@@ -1,0 +1,9 @@
+model Crop {
+  id           Int        @id @default(autoincrement())
+  farmId       Int
+  plantationId Int
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+  farm         Farm       @relation(fields: [farmId], references: [id], onDelete: Cascade)
+  plantation   Plantation @relation(fields: [plantationId], references: [id])
+}
